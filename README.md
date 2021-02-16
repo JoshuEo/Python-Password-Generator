@@ -6,7 +6,8 @@
 - Add a try..except block in if __name__ method
 - Find a way to cleanup the code
  - Creating a method for checking user input and then returning their value
-- Make truely random characters part of the code 
+- Make truely random characters part of the code
+- Provide a function when users enter No for everything 
 ### Questions:
 
 ### Extra (If I end up finishing this project):
