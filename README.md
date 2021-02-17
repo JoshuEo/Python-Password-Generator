@@ -1,14 +1,21 @@
-
-
-
+# The Ultimate Python Password Generator!
+## Features
+- Generate a password with these characteristics:
+  - length
+  - uppercase
+  - lowercase
+  - numbers
+  - special characters
+- Truly random password
+- Easy to use interface
 
 ### Todo list:
-- Add a try..except block in if __name__ method
 - Find a way to cleanup the code
- - Creating a method for checking user input and then returning their value
 - Make truely random characters part of the code
-- Provide a function when users enter No for everything 
 ### Questions:
 
 ### Extra (If I end up finishing this project):
 - Ask for a word - then we can translate it into something a little stronger
+- Turn these functions into a command line version
+- Develop a usage page in readme
+- Create a desktop version of this program
