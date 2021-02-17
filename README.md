@@ -18,4 +18,4 @@
 - Ask for a word - then we can translate it into something a little stronger
 - Turn these functions into a command line version
 - Develop a usage page in readme
-- Create a desktop version of this program
+- Create a deskto
