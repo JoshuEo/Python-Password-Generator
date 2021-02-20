@@ -1,6 +1,7 @@
 import random
 import string
 
+
 class PasswordGenerator:
 
     # Constants
@@ -37,28 +38,67 @@ class PasswordGenerator:
         elif value.upper() == "N" or value.upper() == "NO" or "NO" in value.upper():
             return False
         else:
-            print("Please enter valid inputs (Either \"yes\" or \"no\")")
+            return "bad input"
 
     # Setting the characteristics of the password
     def setLength(self):
-        size = int(input("Length: "))
-        self.length = size
+        print("You may have a minimum of 9 characters and a maximum of 100 (Only a wild man would dare to do 100!)")
+        while True:
+            try:
+                size = int(input("Length: "))
+                if size == 100:
+                    print("You're crazy! No one will bypass your Netflix account!")
+                    self.length = size
+                    break
+                elif size > 8 and size < 101:
+                    self.length = size
+                    break
+                else:
+                    print("Please enter a numeric value between 9-100")
+                    continue
+            except ValueError:
+                print("Please enter a numeric value between 9-100")
+                continue
 
     def setUpper(self):
-        addupper = input("Uppercase Letters (Y/N): ")
-        self.upper = self.checkInput(addupper)
+        while True:
+            addupper = input("Uppercase Letters (Y/N): ")
+            validator = self.checkInput(addupper)
+            if isinstance(validator, bool):
+                self.upper = validator
+                break
+            else:
+                continue
 
     def setLower(self):
-        addlower = input("Lowercase Letters (Y/N): ")
-        self.lower = self.checkInput(addlower)
+        while True:
+            addlower = input("Lowercase Letters (Y/N): ")
+            validator = self.checkInput(addlower)
+            if isinstance(validator, bool):
+                self.lower = validator
+                break
+            else:
+                continue
 
     def setNumber(self):
-        addnumber = input("Numbers (Y/N): ")
-        self.number = self.checkInput(addnumber)
+        while True:
+            addnumber = input("Numbers (Y/N): ")
+            validator = self.checkInput(addnumber)
+            if isinstance(validator, bool):
+                self.number = validator
+                break
+            else:
+                continue
 
     def setSpecial(self):
-        addspecial = input("Special Characters (Y/N): ")
-        self.special = self.checkInput(addspecial)
+        while True:
+            addspecial = input("Special Characters (Y/N): ")
+            validator = self.checkInput(addspecial)
+            if isinstance(validator, bool):
+                self.special = validator
+                break
+            else:
+                continue
 
     # Placing the user's preferred characteristics to a list
     def chooseChars(self):
@@ -75,13 +115,15 @@ class PasswordGenerator:
     # Generating the password using random
     def generate(self):
         newpass = ""
-        if (self.upper == False and self.lower == False and self.number == False and self.special == False):
-            print("Oh no! You didn't say yes for any of the characteristics!\nPassword Generation Failed")
-        for character in range(0, self.length):
-            whichtype = random.choice(self.chars)
-            character = random.choice(whichtype)
-            newpass = newpass + character
-        return newpass
+        while True:
+            if (self.upper == False and self.lower == False and self.number == False and self.special == False):
+                print("Oh no! You didn't say yes for any of the characteristics!\nPassword Generation Failed")
+                break
+            for character in range(0, self.length):
+                whichtype = random.choice(self.chars)
+                character = random.choice(whichtype)
+                newpass = newpass + character
+            return newpass
 
 
 if __name__ == "__main__":
@@ -97,4 +139,4 @@ if __name__ == "__main__":
         password.chooseChars()
         print(f"Generated Password: {password.generate()}")
     except:
-        print("Please enter valid inputs (Either \"yes\" or \"no\" for at least one)")
+        print("Error, please run again")
